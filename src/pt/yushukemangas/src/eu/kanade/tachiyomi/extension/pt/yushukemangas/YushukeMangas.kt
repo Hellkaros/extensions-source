@@ -163,7 +163,7 @@ class YushukeMangas : ParsedHttpSource() {
     override fun chapterListSelector() = "a.chapter-item"
 
     override fun chapterFromElement(element: Element) = SChapter.create().apply {
-        name = element.selectFirst(".chapter-number")!!.text()
+        name = element.selectFirst(".capitulo-numero")!!.text()
         setUrlWithoutDomain(element.absUrl("href"))
     }
 
@@ -180,7 +180,7 @@ class YushukeMangas : ParsedHttpSource() {
     }
 
     private fun fetchChapterListPage(mangaId: String, page: Int): Response {
-        val url = "$baseUrl/ajax/carregar_capitulos.php?order=DESC".toHttpUrl().newBuilder()
+        val url = "$baseUrl/ajax/lzmvke.php?order=DESC".toHttpUrl().newBuilder()
             .addQueryParameter("manga_id", mangaId)
             .addQueryParameter("page", page.toString())
             .build()
